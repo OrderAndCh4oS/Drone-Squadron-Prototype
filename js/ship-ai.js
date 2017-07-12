@@ -39,11 +39,18 @@ window.onload = function () {
     }
   }
 
-  function logScores () {
-    console.log(scores)
+  function displayScores () {
+    //console.log(scores);
+    var ul = document.createElement('ul');
+    for(var score in scores) {
+        var li = document.createElement('li');
+        li.innerHTML =  score + ": " + scores[score];
+        ul.appendChild(li);
+    }
+    console.log(ul);
   }
 
-  for (var i = 100; i > 0; i--) {
+  for (var i = 96; i > 0; i--) {
     var ship = shipClass.create(Math.random() * (width),
       Math.random() * (height), (Math.random() * 0.2) + 0.1,
       (Math.random() * 0.5) + 0.5)
@@ -192,12 +199,13 @@ window.onload = function () {
       deadShips.pop()
     }
     var timer = outputCountdown()
-    if (timer === 0) {
-      logScores();
+    if (timer <= 0) {
+      displayScores();
+      timer = 0;
     }
     context.font = '20px Verdana'
     context.fillStyle = '#ff3243'
-    context.fillText(outputCountdown(), 30, 30)
+    context.fillText(timer, 30, 30)
     requestAnimationFrame(update)
   }
 
