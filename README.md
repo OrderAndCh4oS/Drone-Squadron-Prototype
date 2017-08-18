@@ -1,3 +1,4 @@
-# Ship-AI
+# Prototype of a a JS game with a simple AI
 
-Javescript spaceship AI game
+View demo at:
+https://sarcoma.github.io/Ship-AI/ship-ai-game.html
